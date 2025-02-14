@@ -20,7 +20,7 @@
                         </svg>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body invisible">
                     <p class="text-secondary text-center text-lg-left">
                         {{ trans.post_scheduling_format }}
                         <span class="font-weight-bold">{{ settings.timezone }}</span>
@@ -227,7 +227,10 @@ export default {
     },
 
     mounted() {
-        this.generateDatePicker(this.post.published_at || moment(new Date()).format().slice(0, 19).replace('T', ' '));
+        console.log('Jlugopacbl');
+        const localDate = new Date();
+        const utcDate = new Date(localDate.getTime() + localDate.getTimezoneOffset() * 60000);
+        this.generateDatePicker(this.post.published_at || moment(utcDate).format().slice(0, 19).replace('T', ' '));
     },
 
     methods: {
