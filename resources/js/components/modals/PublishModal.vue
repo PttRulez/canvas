@@ -227,7 +227,7 @@ export default {
     },
 
     mounted() {
-        console.log('Jlugopacbl');
+        console.log('hey guyz');
         const localDate = new Date();
         const utcDate = new Date(localDate.getTime() + localDate.getTimezoneOffset() * 60000);
         this.generateDatePicker(this.post.published_at || moment(utcDate).format().slice(0, 19).replace('T', ' '));
